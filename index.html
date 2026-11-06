@@ -40,14 +40,71 @@
   .logoWrap{top:50%;left:9px;width:46px;height:46px}
   .header{background-position:center center}
 }
+
+/* Updated KODIYETTAM header: replace photo independently at images/bg.png */
+.header {
+  min-height: 212px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #65040d;
+  background-image:
+    linear-gradient(90deg, rgba(55,0,8,.88) 0%, rgba(88,0,10,.64) 40%, rgba(55,0,8,.8) 100%),
+    url('images/bg.png');
+  background-size: cover;
+  background-position: center 43%;
+  background-repeat: no-repeat;
+  text-shadow: 0 2px 9px rgba(23,0,0,.6);
+  padding: 23px 130px 23px;
+}
+.logoWrap {
+  top: 50%; left: max(24px,calc((100% - 1100px)/2));
+  transform: translateY(-50%);
+  width: 112px; height: 112px;
+  background: rgba(255,255,255,.97);
+  border: 3px solid #f1c675;
+  box-shadow: 0 4px 18px #1f0202a8;
+}
+.header .brand { padding: 0; }
+.header .subml,.header .suben { text-shadow: 0 2px 8px #260000; }
+.lang { z-index: 4; }
+@media (max-width: 759px) {
+  .header { min-height: 172px; padding: 37px 12px 20px 84px; background-position: center 39%; }
+  .logoWrap { left: 10px; top: 51%; width: 70px; height: 70px; border-width: 2px; }
+  .header .brand { padding: 0; font-size: clamp(22px,6.1vw,32px); letter-spacing: .1px; line-height: 1.12; }
+  .header .subml { font-size: clamp(11px,3vw,15px); margin: 6px 0 3px; }
+  .header .suben { font-size: 10px; }
+  .lang { right: 8px; top: 8px; }
+}
+@media (max-width: 365px) {
+  .header { padding-left: 73px; }
+  .logoWrap { left: 7px; width: 61px; height: 61px; }
+  .header .brand { font-size: 21px; }
+}
+
+/* Approved previous banner is the artwork itself: never crop or overlay the original title. */
+.festival-heading {background:#66040c;color:#ffe4a5;text-align:center;padding:10px 68px 9px;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid #dca54a}
+.festival-heading strong {font-size:clamp(15px,2.3vw,23px);font-weight:800;line-height:1.35}
+.festival-heading span {font-family:Georgia,serif;font-size:clamp(11px,1.6vw,16px);color:#fff3d7}
+.header,.header:before {background:none!important;background-image:none!important}
+.header {min-height:0!important;padding:0!important;display:block!important;position:relative;line-height:0;border-bottom:4px solid #edbc63;box-shadow:none;text-shadow:none;overflow:hidden}
+.banner-art {display:block;width:100%;height:auto;object-fit:contain}
+.header .lang {right:clamp(7px,2vw,22px);top:clamp(5px,1vw,12px);z-index:5;line-height:normal;background:rgba(76,0,8,.76);box-shadow:0 2px 7px #13000055}
+@media(max-width:759px){
+.festival-heading {padding:8px 6px 7px;gap:1px}
+.festival-heading strong {font-size:14px}
+.festival-heading span {font-size:10px}
+.header .lang {top:4px;right:5px}
+.header .lang button {min-width:25px;min-height:24px;font-size:11px;padding:2px 6px}
+}
 </style></head>
-<body><header class="header"><div class="logoWrap"><img class="brandLogo" src="images/logo.png" alt="KODIYETTAM team logo"></div><div class="lang"><button id="mlBtn" class="active" type="button" aria-label="മലയാളം" title="മലയാളം"><span class="lang-full">മലയാളം</span><span class="lang-short">മ</span></button><button id="enBtn" type="button" aria-label="English" title="English"><span class="lang-full">English</span><span class="lang-short">E</span></button></div><div class="brand">KODIYETTAM</div><div id="subml" class="subml">തെയ്യം – തിറ  കലണ്ടർ</div><div class="suben">Theyyam &amp; Thira Calendar</div></header>
+<body><div class="festival-heading"><strong>തെയ്യം – തിറ കലണ്ടർ</strong><span>Theyyam &amp; Thira Calendar</span></div><header class="header" aria-label="കൊടിയേറ്റം"><img class="banner-art" src="images/bg.png" alt="കൊടിയേറ്റം — KODIYETTAM Theyyam festival banner"><div class="lang"><button id="mlBtn" class="active" type="button" aria-label="മലയാളം" title="മലയാളം"><span class="lang-full">മലയാളം</span><span class="lang-short">മ</span></button><button id="enBtn" type="button" aria-label="English" title="English"><span class="lang-full">English</span><span class="lang-short">E</span></button></div></header>
 <main class="wrap"><section class="filter"><div class="filters-grid"><div class="field search"><label id="searchLabel" for="query">ക്ഷേത്രം / തിറ വിവരങ്ങൾ</label><input id="query" type="search" placeholder="ക്ഷേത്രം / തിറ വിവരങ്ങൾ തിരയുക..."></div><div class="field"><label id="districtLabel" for="district">ജില്ല</label><select id="district"><option value="">എല്ലാ ജില്ലകളും</option></select></div><div class="field"><label id="locationLabel" for="location">സ്ഥലം</label><select id="location"><option value="">എല്ലാ സ്ഥലങ്ങളും</option></select></div><div class="dateGroup" id="dateGroup"><div class="dateFields" id="dateFields"><div class="field"><label id="fromLabel" for="from">തുടങ്ങുന്ന തീയതി</label><input id="from" type="date"></div><div class="field"><label id="toLabel" for="to">അവസാന തീയതി</label><input id="to" type="date"></div></div></div><div class="field"><label aria-hidden="true">&nbsp;</label><div class="buttons"><button id="searchBtn" class="action">തിരയുക</button><button id="resetBtn" class="reset" title="Reset">↻</button></div></div></div></section>
 <div class="tabs" role="tablist"><button id="listTab" class="active" type="button">☷ പട്ടിക വ്യൂ</button><button id="calendarTab" type="button">▦ കലണ്ടർ വ്യൂ</button></div><div class="status"><span id="count">...</span><span id="loaded"></span></div><div id="warning" class="warn hidden"></div><section id="listSection"><div class="desktop-only" id="tableTarget"></div><div class="mobile-only eventlist" id="cardsTarget"></div></section><section id="calendarSection" class="hidden"><div class="calbox"><div class="monthnav"><button id="prev" aria-label="Previous month">‹</button><span id="monthTitle"></span><button id="next" aria-label="Next month">›</button></div><div id="calGrid" class="calendar"></div><div class="calnote" id="calHint"></div></div><div id="calendarEvents" class="eventlist"></div></section><footer class="footer">KODIYETTAM · <span id="disclaimer">പരിപാടികളുടെ സമയം ക്ഷേത്രവുമായി സ്ഥിരീകരിക്കുക.</span></footer></main><nav class="mobilebar"><button id="bottomList" class="active"><span>☷</span><b id="navList">പട്ടിക</b></button><button id="bottomCalendar"><span>▦</span><b id="navCalendar">കലണ്ടർ</b></button><button id="bottomTop"><span>⌕</span><b id="navSearch">തിരയുക</b></button></nav>
 <script>
 /* STEP 1: PASTE YOUR NEW GOOGLE SHEETS PUBLISHED CSV URL BELOW. */
 const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQEsde-LWTfjqXA_07OfbKmvkkfWOIKJ7ofXGxtBSpySjd6YJlUY_63naoIA1cWhMKeRCp_MYy4sBR1/pub?output=csv';
-const WEBSITE_URL = location.protocol.startsWith('http') ? location.origin + location.pathname : 'KODIYETTAM';
+const WEBSITE_URL = location.protocol.startsWith('http') ? location.origin + location.pathname : 'https://kodiyettamvtk-cloud.github.io/ThiraCalendar/';
 // Fictional demonstration only. Replaced with sheet data as soon as CSV loads.
 const DEMO = [
 {EventID:'DEMO-1',TempleML:'ഉദാഹരണ കാവ് – ഒന്ന്',TempleEN:'Example Kavu One',FromDate:'2026-12-10',ToDate:'2026-12-14',ThiraDetailsML:'ഡിസംബർ 10: വിളക്കുവെപ്പ്\nഡിസംബർ 12: തെയ്യം – തിറ പരിപാടികൾ\nഡിസംബർ 14: സമാപനം',ThiraDetailsEN:'10 Dec: Opening ceremony\n12 Dec: Theyyam & Thira performances\n14 Dec: Closing',DistrictML:'കോഴിക്കോട്',DistrictEN:'Kozhikode',LocationML:'വടകര',LocationEN:'Vatakara',MapURL:'',Phone:'',Status:'Published'},
