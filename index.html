@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#800b13"><title>KODIYETTAM | Theyyam & Thira Calendar</title>
+<style>
+:root{--red:#830c15;--dark:#59050d;--gold:#edbc63;--cream:#fffaf1;--line:#eadbca;--ink:#392522;--muted:#776763;--green:#168844}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'Noto Sans Malayalam','Nirmala UI','Manjari',system-ui,sans-serif;background:linear-gradient(180deg,#fff7e9,#fffefb);font-size:14px}button,select,input{font:inherit}button{cursor:pointer}a{color:inherit}.header{background:radial-gradient(ellipse at 50% -40%,#b52323,#810a12 65%,#5d050b);color:#fff7e7;padding:18px 14px 16px;text-align:center;border-bottom:4px solid var(--gold);position:relative}.brand{font-family:Georgia,serif;letter-spacing:2px;font-size:clamp(29px,6vw,48px);font-weight:800;line-height:1.18}.subml{font-weight:800;color:#ffda8a;font-size:clamp(14px,3.3vw,22px);margin:4px 0}.suben{font-size:12px;color:#ffe6be;letter-spacing:.3px}.motif{font-size:29px;color:var(--gold);position:absolute;top:17px;left:max(12px,calc((100% - 1100px)/2))}.lang{position:absolute;right:max(10px,calc((100% - 1110px)/2));top:12px;display:flex;border:1px solid #f2cb84;border-radius:18px;overflow:hidden}.lang button{border:0;background:transparent;color:#fff7e7;padding:6px 9px;font-size:11px}.lang button.active{background:#ffde9b;color:#5c0a0d;font-weight:bold}.wrap{max-width:1100px;margin:auto;padding:12px 12px 90px}.filter{border:1px solid var(--line);border-radius:18px;background:#fff9f1;padding:12px;box-shadow:0 6px 20px #5d080c0a;display:grid;gap:9px}.search{grid-column:1/-1}.field{display:flex;flex-direction:column;gap:4px;min-width:0}.field label{font-size:11px;font-weight:800;color:#6f1b1d}.field input,.field select{height:40px;width:100%;min-width:0;border:1px solid #dfcdc2;background:white;border-radius:10px;padding:7px 9px;color:var(--ink)}.filters-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.buttons{display:flex;gap:8px}.action{border:0;border-radius:11px;background:var(--red);color:white;font-weight:700;padding:10px 13px}.reset{border:1px solid var(--line);background:white;color:var(--red);border-radius:11px;padding:10px 12px}.tabs{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:25px;padding:3px;max-width:440px;margin:14px auto}.tabs button{border:0;border-radius:21px;background:transparent;color:#732326;padding:10px;font-weight:800}.tabs button.active{background:var(--red);color:white;box-shadow:0 3px 8px #6e071222}.status{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:12px 3px;color:#693431;font-size:12px}.status b{color:var(--red)}.monthnav{display:flex;align-items:center;justify-content:space-between;color:#fff;background:var(--red);border-radius:12px 12px 0 0;padding:9px 10px;font-weight:800;font-size:18px}.monthnav button{background:transparent;color:#fff;border:0;font-size:24px;padding:0 12px}.calbox{background:white;border:1px solid #e7d6c4;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px #480b0911}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.dow{background:#fff2de;color:var(--red);text-align:center;padding:10px 1px;font-weight:800;font-size:11px;border-bottom:1px solid var(--line)}.day{height:54px;min-width:0;position:relative;background:white;border:0;border-right:1px solid #f0e4da;border-bottom:1px solid #f0e4da;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;font-size:14px}.day.blank{background:#fffaf5}.day.has{background:#fff6e8}.day.selected{outline:2px solid var(--red);outline-offset:-3px;background:#fff1d6}.day.today{font-weight:900}.dots{display:flex;gap:3px;align-items:center}.dot{width:6px;height:6px;border-radius:50%;background:#bc1829}.dot:nth-child(2){background:#e3a01a}.dot:nth-child(3){background:#1e925b}.calnote{padding:10px 12px;color:var(--muted);font-size:11px}.eventlist{display:grid;gap:9px;margin-top:12px}.event{background:white;border:1px solid #ebded1;border-left:4px solid #dda83a;border-radius:13px;padding:12px 12px 10px;box-shadow:0 3px 11px #6910100d}.eventtop{display:flex;gap:8px;justify-content:space-between;align-items:start}.temple{font-size:16px;font-weight:900;color:var(--red);line-height:1.45;margin:0}.district{flex:none;background:#fff3d8;color:#7a2b19;border-radius:12px;padding:5px 9px;font-size:11px;font-weight:700}.date{display:inline-block;margin-top:6px;color:#8a0e16;background:#fff0eb;border-radius:9px;font-weight:800;font-size:12px;padding:4px 8px}.location{margin:7px 0 3px;color:#6d5751;font-size:12px}.details{line-height:1.65;white-space:pre-line;overflow-wrap:anywhere;margin:8px 0;color:#453b37;font-size:13px}.details.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}.more{border:none;background:transparent;color:var(--red);font-size:11px;font-weight:800;padding:0;margin:0 0 7px}.eventfoot{border-top:1px solid #f0e6dc;padding-top:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.phone{font-size:12px;font-weight:700;text-decoration:none;color:#17763d;flex:1;min-width:100px}.icona{width:39px;height:35px;border-radius:10px;display:flex;justify-content:center;align-items:center;border:1px solid #ded5ce;text-decoration:none;background:#fff}.icona svg{width:22px;height:22px}.icona.map{color:#1875d1}.icona.wa{color:#078d49}.icona.disabled{opacity:.28;pointer-events:none}.desktop-table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--line);font-size:13px}.desktop-table th{background:var(--red);color:#fff;padding:12px;text-align:left}.desktop-table td{border-bottom:1px solid #ebded1;padding:10px;vertical-align:top}.desktop-table td.detailCell{max-width:390px;white-space:pre-line;overflow-wrap:anywhere}.tablewrap{overflow:auto;border-radius:12px}.empty{padding:35px 15px;text-align:center;color:var(--muted);background:white;border:1px solid var(--line);border-radius:13px}.footer{padding:20px 10px;text-align:center;color:#7d6a62;font-size:11px}.hidden{display:none!important}.warn{background:#fff4d6;border:1px solid #e6bd69;padding:12px;border-radius:12px;color:#78481c;font-size:12px}.mobilebar{position:fixed;bottom:0;left:0;right:0;background:#74050e;display:flex;justify-content:space-around;border-top:2px solid #edbc63;z-index:4;padding:8px 0 env(safe-area-inset-bottom)}.mobilebar button{border:0;background:transparent;color:#fff4e4;display:flex;flex-direction:column;align-items:center;font-weight:700;font-size:11px;gap:2px}.mobilebar button.active{color:#ffcf63}.mobilebar span{font-size:19px}@media(min-width:760px){.header{padding:28px 15px}.filter{display:block}.filter .filters-grid{grid-template-columns:1.6fr 1fr 1fr 1fr 1fr auto;align-items:end}.filter .search{grid-column:auto}.filter .buttons{grid-column:auto}.wrap{padding:20px 20px 35px}.mobilebar{display:none}.eventlist{grid-template-columns:1fr 1fr}.desktop-only{display:block}.mobile-only{display:none}.day{height:80px}.dow{font-size:13px}}@media(max-width:759px){.desktop-only{display:none}.mobile-only{display:block}.brand{padding-top:12px}.motif{top:12px}.lang{top:9px}.eventlist{grid-template-columns:1fr}}
+
+/* KODIYETTAM branded compact mobile header */
+.logoWrap{position:absolute;top:12px;left:max(12px,calc((100% - 1100px)/2));width:64px;height:64px;border:2px solid #f5d58a;border-radius:50%;background:white;box-shadow:0 2px 9px #21030966;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.brandLogo{display:block;width:100%;height:100%;object-fit:contain}
+.lang-short{display:none}.lang-full{display:inline}
+.dateGroup{display:contents}.dateFields{display:contents}
+@media(min-width:760px){.logoWrap{width:86px;height:86px;top:14px}.header .brand{padding:0 96px}.dateGroup{display:contents}.dateFields{display:contents}}
+@media(max-width:759px){
+.header{padding:18px 10px 13px;min-height:121px}.header .brand{font-size:clamp(21px,6.3vw,30px);padding:20px 52px 0 52px;letter-spacing:.3px;white-space:normal;overflow-wrap:break-word}
+.header .subml{font-size:12px;margin-top:3px}.header .suben{font-size:10px}
+.logoWrap{left:9px;top:13px;width:49px;height:49px;border-width:1px}
+.lang{right:8px;top:9px;border-radius:9px;z-index:2}
+.lang button{min-width:32px;min-height:29px;padding:4px 8px;font-size:13px;font-weight:800}
+.lang-full{display:none}.lang-short{display:inline}
+.dateGroup{grid-column:1/-1;display:block;min-width:0}
+
+.dateFields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:0}
+
+
+}
+
+/* Header artwork is a separate replaceable GitHub file: images/bg.png */
+.header{
+  background-image: linear-gradient(90deg, rgba(69,3,11,.86), rgba(99,4,13,.78), rgba(69,3,11,.86)), url('images/bg.png');
+  background-color:#790914;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  isolation:isolate;
+}
+/* Logo remains vertically centered on the left at both screen sizes. */
+.logoWrap{top:50%;transform:translateY(-50%);z-index:1}
+.header .brand,.header .subml,.header .suben{position:relative;z-index:1}
+@media(min-width:760px){.logoWrap{top:50%}}
+@media(max-width:759px){
+  .logoWrap{top:50%;left:9px;width:46px;height:46px}
+  .header{background-position:center center}
+}
+
+/* Updated KODIYETTAM header: replace photo independently at images/bg.png */
+.header {
+  min-height: 212px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #65040d;
+  background-image:
+    linear-gradient(90deg, rgba(55,0,8,.88) 0%, rgba(88,0,10,.64) 40%, rgba(55,0,8,.8) 100%),
+    url('images/bg.png');
+  background-size: cover;
+  background-position: center 43%;
+  background-repeat: no-repeat;
+  text-shadow: 0 2px 9px rgba(23,0,0,.6);
+  padding: 23px 130px 23px;
+}
+.logoWrap {
+  top: 50%; left: max(24px,calc((100% - 1100px)/2));
+  transform: translateY(-50%);
+  width: 112px; height: 112px;
+  background: rgba(255,255,255,.97);
+  border: 3px solid #f1c675;
+  box-shadow: 0 4px 18px #1f0202a8;
+}
+.header .brand { padding: 0; }
+.header .subml,.header .suben { text-shadow: 0 2px 8px #260000; }
+.lang { z-index: 4; }
+@media (max-width: 759px) {
+  .header { min-height: 172px; padding: 37px 12px 20px 84px; background-position: center 39%; }
+  .logoWrap { left: 10px; top: 51%; width: 70px; height: 70px; border-width: 2px; }
+  .header .brand { padding: 0; font-size: clamp(22px,6.1vw,32px); letter-spacing: .1px; line-height: 1.12; }
+  .header .subml { font-size: clamp(11px,3vw,15px); margin: 6px 0 3px; }
+  .header .suben { font-size: 10px; }
+  .lang { right: 8px; top: 8px; }
+}
+@media (max-width: 365px) {
+  .header { padding-left: 73px; }
+  .logoWrap { left: 7px; width: 61px; height: 61px; }
+  .header .brand { font-size: 21px; }
+}
+
+/* KODIYETTAM header: image asset, independent logo and bilingual overlay */
+.festival-heading {display:none!important}
+.header,.header:before{background:none!important;background-image:none!important}
+.header{position:relative;display:block!important;min-height:0!important;padding:0!important;line-height:0;overflow:hidden;border-bottom:4px solid #e9b35a;isolation:isolate}
+.banner-art{display:block;width:100%;height:auto;object-fit:contain}
+.header-title{position:absolute;left:50%;top:4%;transform:translateX(-50%);z-index:2;text-align:center;width:max-content;max-width:65%;line-height:1.25;padding:5px 20px 6px;border-radius:0 0 14px 14px;background:linear-gradient(180deg,rgba(50,0,7,.85),rgba(50,0,7,.54));text-shadow:0 2px 5px #220007}
+.header-title .malayalam-title{display:block;font-size:clamp(14px,1.75vw,25px);font-weight:850;color:#ffe5a4}
+.header-title .english-title{display:block;font-family:Georgia,serif;font-size:clamp(10px,1.2vw,17px);color:#fff4dd;letter-spacing:.2px;margin-top:2px}
+.header-logo{position:absolute;left:3%;top:50%;transform:translateY(-50%);z-index:3;display:block;width:clamp(70px,9.5vw,150px);aspect-ratio:1;object-fit:contain;border-radius:50%;filter:drop-shadow(0 4px 7px rgba(10,0,0,.8));background:rgba(255,255,255,.91);border:2px solid #edc472}
+.header .lang{top:6px;right:9px;z-index:5;line-height:normal;background:#5c0610ed;border-radius:18px;box-shadow:0 2px 7px #13000055}
+.header .lang button{font-size:12px;min-height:30px}
+@media(max-width:759px){
+ .header-title{top:4px;width:max-content;max-width:70%;padding:3px 5px 4px;background:rgba(68,0,7,.83);border-radius:0 0 6px 6px}
+ .header-title .malayalam-title{font-size:clamp(10px,2.85vw,14px);white-space:nowrap}
+ .header-title .english-title{font-size:clamp(8px,2.15vw,10px);white-space:nowrap;margin-top:0}
+ .header-logo{left:2%;width:clamp(44px,13vw,64px);border-width:1px}
+ .header .lang{top:4px;right:4px;border-radius:9px}
+ .header .lang button{min-width:22px;min-height:23px;font-size:11px;padding:2px 6px}
+}
+
+/* New responsive banner layout: keeps image at intrinsic ratio, no text overlap */
+.header{display:flex!important;flex-direction:column!important;min-height:unset!important;padding:0!important;background:#69030d!important;border-bottom:4px solid #e6b75e!important;overflow:hidden!important;isolation:auto!important;text-shadow:none!important}
+.brand-controls{order:0;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:5px max(16px,calc((100% - 1160px)/2));background:#660810;border-bottom:1px solid #ce9349;line-height:normal}
+.brand-controls .header-logo{display:block!important;position:static!important;transform:none!important;width:42px!important;height:42px!important;aspect-ratio:1;flex:none;object-fit:contain;border:1px solid #e6b75e;border-radius:50%;background:#fff;filter:none}
+.brand-controls .lang{display:flex!important;position:static!important;box-shadow:none!important;border:1px solid #edbd75!important;line-height:normal!important;background:#58040c!important;overflow:hidden;border-radius:18px}
+.brand-controls .lang button{color:#ffe5ad!important;padding:7px 12px!important;min-height:31px!important;font-size:12px!important}
+.brand-controls .lang button.active{background:#f0cb82!important;color:#57070e!important}
+.header .banner-art{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;line-height:0!important}
+.header .header-title{display:none!important}
+.header-caption{order:2;text-align:center;padding:7px 10px 8px;background:#750b13;color:#f7ddae;line-height:1.4;font-size:12px}
+.header-caption strong{font-size:14px;display:inline;color:#ffe3a0}
+.header-caption span{display:inline;color:#f5e1c4;margin-left:9px;font-family:Georgia,serif}
+@media(min-width:760px){.header .banner-art{max-height:315px!important;object-fit:cover!important;object-position:center center!important}}
+@media(max-width:759px){.brand-controls{padding:4px 10px;min-height:40px}.brand-controls .header-logo{width:34px!important;height:34px!important}.brand-controls .lang button{font-size:12px!important;padding:4px 9px!important;min-height:27px!important}.header-caption{padding:5px;font-size:10px}.header-caption strong{font-size:11px}.header-caption span{font-size:10px;margin-left:4px}}
+
+/* Header revision: no extra strip or duplicate caption; controls on banner */
+.header{position:relative!important;display:block!important;padding:0!important;background:#62080d!important;line-height:0!important;overflow:hidden!important;min-height:0!important;border-bottom:4px solid #e6b75e!important;isolation:isolate!important}
+.header .banner-art{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center center!important}
+.header .brand-controls{position:absolute!important;z-index:10!important;inset:0 0 auto 0!important;pointer-events:none!important;min-height:0!important;height:100%!important;display:block!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;line-height:normal!important}
+.header .brand-controls .header-logo{position:absolute!important;left:clamp(9px,2.5vw,36px)!important;top:50%!important;transform:translateY(-50%)!important;width:clamp(72px,9.5vw,140px)!important;height:clamp(72px,9.5vw,140px)!important;object-fit:contain!important;border:2px solid #e7bd67!important;border-radius:50%!important;box-shadow:0 3px 14px #1e0406aa!important;background:#fff!important;pointer-events:auto!important}
+.header .brand-controls .lang{position:absolute!important;right:clamp(8px,2vw,28px)!important;top:clamp(7px,1.4vw,20px)!important;height:auto!important;display:flex!important;border:1px solid #f1c67f!important;border-radius:18px!important;background:rgba(84,2,13,.91)!important;box-shadow:0 2px 7px #17000670!important;pointer-events:auto!important}
+.header .brand-controls .lang button{min-height:30px!important;padding:5px 10px!important;font-size:12px!important}
+.header-caption{display:none!important}
+@media(min-width:760px){.header .brand-controls .header-logo{left:4%!important;width:clamp(105px,10vw,165px)!important;height:clamp(105px,10vw,165px)!important}}
+@media(max-width:759px){.header .brand-controls .header-logo{left:7px!important;top:50%!important;width:clamp(48px,12vw,70px)!important;height:clamp(48px,12vw,70px)!important;border-width:1px!important}.header .brand-controls .lang{top:5px!important;right:5px!important;border-radius:12px!important}.header .brand-controls .lang button{padding:3px 8px!important;min-height:25px!important;font-size:11px!important}}
+
+
+/* Approved: prominent left-centered logo and clear language selector. */
+@media (min-width:760px) {
+ .header .brand-controls .header-logo {
+   left:3%!important; top:50%!important;
+   width:clamp(130px,14vw,210px)!important;
+   height:clamp(130px,14vw,210px)!important;
+ }
+}
+@media (max-width:759px) {
+ .header .brand-controls .header-logo {
+   left:6px!important; top:50%!important;
+   width:clamp(56px,18vw,90px)!important;
+   height:clamp(56px,18vw,90px)!important;
+ }
+ .header .brand-controls .lang {top:5px!important;right:6px!important}
+}
+
+/* Fix native date controls overflowing narrow iPhone/Android layouts. */
+.filters-grid, .filter, .dateGroup, .dateFields, .dateFields .field {min-width:0;max-width:100%;}
+.dateFields input[type="date"] {display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%;padding:6px 5px;font-size:clamp(12px,3.2vw,14px);}
+@media(max-width:759px){
+  .dateGroup{width:100%;grid-column:1/-1;min-width:0;}
+  .dateFields{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;min-width:0;}
+  .dateFields .field{width:100%;min-width:0;overflow:hidden;}
+  .dateFields input[type="date"]{height:42px;min-width:0;width:100%;max-width:100%;padding-inline:4px;}
+}
+/* The email is live HTML text, not part of bg.png. */
+.banner-email {position:absolute;left:50%;bottom:5.5%;transform:translateX(-50%);z-index:6;
+  line-height:1.2;font:600 clamp(10px,1.15vw,16px)/1.2 Arial,sans-serif;
+  color:#fff1d7;text-decoration:none;text-shadow:0 1px 5px #2e0000;
+  white-space:nowrap;letter-spacing:.2px;}
+@media(max-width:759px){.banner-email{font-size:clamp(9px,2.6vw,12px);bottom:4.5%;}}
+
+/* Festive welcome: golden stars, flower petals, brass lamps and tiny traditional motifs. */
+.kodiyettam-stars{position:fixed;inset:0;z-index:9999;overflow:hidden;pointer-events:none;contain:layout paint}
+.kodiyettam-star{position:absolute;top:-48px;left:var(--star-x);width:var(--star-size);height:var(--star-size);opacity:0;display:grid;place-items:center;line-height:1;user-select:none;will-change:transform,opacity;filter:drop-shadow(0 0 4px rgba(255,207,110,.46));animation:kodiyettam-starfall var(--star-duration) ease-in var(--star-delay) both}
+.kodiyettam-star svg{display:block;width:100%;height:100%;fill:var(--star-color)}
+.kodiyettam-star.kodiyettam-symbol{color:var(--star-color);font-family:Georgia,serif;font-weight:900}
+.kodiyettam-star.kodiyettam-lamp{filter:drop-shadow(0 0 5px rgba(255,168,45,.65))}
+@keyframes kodiyettam-starfall{0%{transform:translate3d(0,-40px,0) rotate(-20deg) scale(.65);opacity:0}12%{opacity:.88}74%{opacity:.84}100%{transform:translate3d(var(--star-drift),110vh,0) rotate(var(--star-rotation)) scale(.8);opacity:0}}
+@media(prefers-reduced-motion:reduce){.kodiyettam-stars{display:none!important}}
+
+
+/* Poster dialog: view, zoom and download without leaving the website */
+.poster-overlay{position:fixed;inset:0;z-index:10020;background:rgba(30,6,9,.82);display:flex;align-items:center;justify-content:center;padding:12px}
+.poster-overlay[hidden]{display:none!important}
+.poster-dialog{width:min(100%,680px);max-height:calc(100dvh - 24px);display:flex;flex-direction:column;background:#fffaf0;border:1px solid #e5b76a;border-radius:15px;box-shadow:0 18px 65px #0008;overflow:hidden}
+.poster-top{display:flex;align-items:center;gap:8px;padding:11px 13px;background:#fff9ed;color:#7b0d1b}
+.poster-top strong{flex:1;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.poster-close{border:0;border-radius:8px;background:#f3e7d8;color:#651018;font-size:23px;width:35px;height:35px;cursor:pointer}
+.poster-image-area{min-height:120px;flex:1;overflow:auto;background:#261519;display:flex;align-items:flex-start;justify-content:center;touch-action:pan-x pan-y}
+.poster-image-area img{display:block;max-width:100%;height:auto;object-fit:contain;transform-origin:top center;transition:width .15s ease}
+.poster-controls{padding:10px 12px;display:flex;gap:7px;align-items:center;justify-content:center;flex-wrap:wrap}
+.poster-controls button,.poster-controls a{border-radius:9px;border:1px solid #cfa565;min-height:38px;padding:8px 12px;background:white;color:#73151e;font-weight:750;text-decoration:none;cursor:pointer}
+.poster-controls .poster-download{background:#830d1e;color:white;border-color:#830d1e;flex:1;text-align:center;max-width:240px}
+body.poster-open{overflow:hidden}
+/* Contact actions and optional poster download */
+.contact-actions{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:14px auto 3px}
+.contact-actions a{display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;border:1px solid #e7ceb0;border-radius:22px;padding:7px 14px;background:#fffdf8;color:#762125;font-weight:800;font-size:12px;box-shadow:0 2px 7px #4c07110d}
+.contact-actions .contact-wa{color:#157741}
+.contact-actions svg{width:20px;height:20px;flex:none}
+.icona.poster{color:#a26317;cursor:pointer;font-family:inherit}
+.poster-hint{font-size:11px;color:#755644;text-align:center;padding:0 12px 6px}
+@media(max-width:759px){.contact-actions{margin-top:9px;gap:8px}.contact-actions a{font-size:11px;padding:7px 10px}}
+
+/* Contact Us page: separate from calendar; matches KODIYETTAM colors. */
+.desktop-page-nav{display:flex;justify-content:flex-end;gap:7px;margin-bottom:12px}
+.desktop-page-nav button{border:1px solid #d4b584;border-radius:10px;padding:9px 16px;background:white;color:#78101a;font-weight:800}
+.desktop-page-nav button.active{background:#830c15;color:white}
+.contact-page{max-width:670px;margin:8px auto 30px;display:grid;gap:14px}
+.contact-title{background:linear-gradient(125deg,#9c101b,#66040d);color:#fff2df;text-align:center;padding:18px 14px;border-radius:16px;box-shadow:0 5px 16px #71080f22;border-bottom:3px solid #eac273}
+.contact-title h2{margin:0;font-size:clamp(20px,4.8vw,28px);line-height:1.4}
+.contact-title .contact-subtitle{font-size:12px;color:#ffe4b1;font-weight:650}
+.contact-message{position:relative;border:1px solid #ecd39e;border-radius:18px;background:linear-gradient(150deg,#fff9ec,#fff1d9);padding:18px 16px 16px;box-shadow:0 3px 12px #601b1210;text-align:center}
+.contact-megaphone{display:grid;place-items:center;width:46px;height:46px;margin:-8px auto 9px;border-radius:50%;background:#fff5dc;border:1px solid #e8be65;color:#830c15;font-size:25px}
+.contact-message p{color:#681620;font-size:clamp(13px,3.4vw,16px);font-weight:750;line-height:1.8;margin:0}
+.contact-methods{display:grid;gap:11px;background:#fffdfa;border:1px solid #eee0ce;border-radius:18px;padding:17px 14px;box-shadow:0 4px 16px #500d0b0d}
+.contact-wa-link{display:flex;align-items:center;justify-content:center;gap:10px;min-height:49px;padding:10px 8px;border-radius:30px;background:linear-gradient(115deg,#16b85c,#08783b);color:white;text-decoration:none;box-shadow:0 3px 10px #086c2733;font:800 clamp(14px,3.8vw,19px)/1.25 system-ui,sans-serif;white-space:nowrap}
+.contact-wa-link svg{width:26px;height:26px;flex-shrink:0}
+.contact-email-link{display:flex;align-items:center;justify-content:center;gap:10px;overflow-wrap:anywhere;text-decoration:none;color:#63202a;background:#fff;border:1px solid #ead7c8;border-radius:12px;padding:13px 9px;font:700 clamp(12px,3.3vw,16px)/1.3 system-ui,sans-serif}
+.contact-email-link svg{width:23px;height:23px;flex-shrink:0}
+.contact-decor{text-align:center;color:#ae7740;font-size:12px;padding:5px 0 8px}
+@media(max-width:759px){.desktop-page-nav{display:none}.contact-page{margin-top:4px}.contact-title{padding:13px 10px}.contact-message{padding:15px 13px}.mobilebar{justify-content:space-around}.mobilebar button{flex:1;min-width:0;font-size:10px}.mobilebar span{font-size:18px}}
+</style></head>
+<body><header class="header" aria-label="കൊടിയേറ്റം">
+<div class="brand-controls"><img class="header-logo" src="images/logo.png" alt="KODIYETTAM logo" />
+<div class="lang"><button id="mlBtn" class="active" type="button" aria-label="മലയാളം" title="മലയാളം"><span class="lang-full">മലയാളം</span><span class="lang-short">മ</span></button><button id="enBtn" type="button" aria-label="English" title="English"><span class="lang-full">English</span><span class="lang-short">E</span></button></div></div>
+<img class="banner-art" src="images/bg.png" alt="കൊടിയേറ്റം — തിറക്കുറി banner" />
+<a class="banner-email" id="bannerEmail" href="mailto:kodiyettam.vtk@gmail.com">kodiyettam.vtk@gmail.com</a>
+<div class="header-caption"><strong>തെയ്യം | തിറ കലണ്ടർ</strong><span>Theyyam | Thira Calendar</span></div>
+</header>
+<main class="wrap">
+<div class="desktop-page-nav" aria-label="Website sections"><button id="desktopHome" class="active" type="button">പട്ടിക / Calendar</button><button id="desktopContact" type="button">ബന്ധപ്പെടുക</button></div>
+<div id="calendarHome"><section class="filter"><div class="filters-grid"><div class="field search"><label id="searchLabel" for="query">ക്ഷേത്രം / തിറ വിവരങ്ങൾ</label><input id="query" type="search" placeholder="ക്ഷേത്രം / തിറ വിവരങ്ങൾ തിരയുക..."></div><div class="field"><label id="districtLabel" for="district">ജില്ല</label><select id="district"><option value="">എല്ലാ ജില്ലകളും</option></select></div><div class="field"><label id="locationLabel" for="location">സ്ഥലം</label><select id="location"><option value="">എല്ലാ സ്ഥലങ്ങളും</option></select></div><div class="dateGroup" id="dateGroup"><div class="dateFields" id="dateFields"><div class="field"><label id="fromLabel" for="from">തുടങ്ങുന്ന തീയതി</label><input id="from" type="date"></div><div class="field"><label id="toLabel" for="to">അവസാന തീയതി</label><input id="to" type="date"></div></div></div><div class="field"><label aria-hidden="true">&nbsp;</label><div class="buttons"><button id="searchBtn" class="action">തിരയുക</button><button id="resetBtn" class="reset" title="Reset">↻</button></div></div></div></section>
+<div class="tabs" role="tablist"><button id="listTab" class="active" type="button">☷ പട്ടിക വ്യൂ</button><button id="calendarTab" type="button">▦ കലണ്ടർ വ്യൂ</button></div><div class="status"><span id="count">...</span><span id="loaded"></span></div><div id="warning" class="warn hidden"></div><section id="listSection"><div class="desktop-only" id="tableTarget"></div><div class="mobile-only eventlist" id="cardsTarget"></div></section><section id="calendarSection" class="hidden"><div class="calbox"><div class="monthnav"><button id="prev" aria-label="Previous month">‹</button><span id="monthTitle"></span><button id="next" aria-label="Next month">›</button></div><div id="calGrid" class="calendar"></div><div class="calnote" id="calHint"></div></div><div id="calendarEvents" class="eventlist"></div></section></div>
+<section id="contactPage" class="contact-page hidden" aria-labelledby="contactHeading">
+ <div class="contact-title"><h2 id="contactHeading">ബന്ധപ്പെടുക</h2><div class="contact-subtitle" id="contactSubtitle">Contact Us</div></div>
+ <div class="contact-message"><div class="contact-megaphone" aria-hidden="true">📣</div><p id="contactMessage">ഈ കലണ്ടറിൽ ക്ഷേത്രങ്ങളുടെയും കാവുകളുടെയും തിറ വിവരങ്ങൾ പുതുതായി ചേർക്കുന്നതിനോ നിലവിലുള്ള വിവരങ്ങൾ പുതുക്കുന്നതിനോ ഞങ്ങളെ ബന്ധപ്പെടുക.</p></div>
+ <div class="contact-methods" aria-label="Contact details">
+ <a class="contact-wa-link" id="contactWhatsApp1" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.9 6.9 0 0 1-3.1-2.7c-.1-.2 0-.3.1-.4l.5-.6c.1-.2.1-.3.1-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.2.8 2.3 1 2.5 1.1 1.5 2.5 2.7 4.2 3.4 1.3.5 2 .6 2.8.5.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg><span id="whatsappLabel1">+91 90483 70560</span></a>
+ <a class="contact-wa-link" id="contactWhatsApp2" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.9 6.9 0 0 1-3.1-2.7c-.1-.2 0-.3.1-.4l.5-.6c.1-.2.1-.3.1-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.2.8 2.3 1 2.5 1.1 1.5 2.5 2.7 4.2 3.4 1.3.5 2 .6 2.8.5.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg><span id="whatsappLabel2">+91 96051 50855</span></a>
+ <a class="contact-email-link" id="contactEmail" href="mailto:kodiyettam.vtk@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg><span id="contactEmailText">kodiyettam.vtk@gmail.com</span></a>
+ </div><div class="contact-decor" aria-hidden="true">✦ 🪔 ✦</div>
+</section>
+<footer class="footer">KODIYETTAM · <span id="disclaimer">പരിപാടികളുടെ സമയം ക്ഷേത്രവുമായി സ്ഥിരീകരിക്കുക.</span></footer></main><nav class="mobilebar"><button id="bottomList" class="active"><span>☷</span><b id="navList">പട്ടിക</b></button><button id="bottomCalendar"><span>▦</span><b id="navCalendar">കലണ്ടർ</b></button><button id="bottomTop"><span>⌕</span><b id="navSearch">തിരയുക</b></button><button id="bottomContact" type="button"><span>♧</span><b id="navContact">ബന്ധപ്പെടുക</b></button></nav>
+<div id="posterOverlay" class="poster-overlay" hidden aria-hidden="true">
+  <div class="poster-dialog" role="dialog" aria-modal="true" aria-labelledby="posterTitle">
+    <div class="poster-top"><strong id="posterTitle">ഉത്സവ പോസ്റ്റർ</strong><button id="posterClose" class="poster-close" type="button" aria-label="Close poster">×</button></div>
+    <div class="poster-image-area" id="posterImageArea"><img id="posterImage" alt="Festival poster" /></div>
+    <div class="poster-controls"><button id="posterZoomOut" type="button" aria-label="Zoom out">−</button><button id="posterZoomIn" type="button" aria-label="Zoom in">+</button><button id="posterZoomReset" type="button" aria-label="Reset zoom">100%</button><a id="posterDownload" class="poster-download" download>⬇ ഡൗൺലോഡ്</a></div>
+  </div>
+</div>
+<script>
+/* SETTINGS: Change the two WhatsApp numbers and Gmail address here. */
+/* Google Sheet published CSV URL stays unchanged. */
+const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQEsde-LWTfjqXA_07OfbKmvkkfWOIKJ7ofXGxtBSpySjd6YJlUY_63naoIA1cWhMKeRCp_MYy4sBR1/pub?output=csv';
+const CONTACT_WHATSAPP_1 = '919048370560'; // First WhatsApp contact, digits only
+const CONTACT_WHATSAPP_2 = '919605150855'; // Second WhatsApp contact, digits only
+const CONTACT_EMAIL = 'kodiyettam.vtk@gmail.com';
+const WEBSITE_URL = location.protocol.startsWith('http') ? location.origin + location.pathname : 'https://kodiyettamvtk-cloud.github.io/ThiraCalendar/';
+// Fictional demonstration only. Replaced with sheet data as soon as CSV loads.
+const DEMO = [
+{EventID:'DEMO-1',TempleML:'ഉദാഹരണ കാവ് – ഒന്ന്',TempleEN:'Example Kavu One',FromDate:'2026-12-10',ToDate:'2026-12-14',ThiraDetailsML:'ഡിസംബർ 10: വിളക്കുവെപ്പ്\nഡിസംബർ 12: തെയ്യം – തിറ പരിപാടികൾ\nഡിസംബർ 14: സമാപനം',ThiraDetailsEN:'10 Dec: Opening ceremony\n12 Dec: Theyyam & Thira performances\n14 Dec: Closing',DistrictML:'കോഴിക്കോട്',DistrictEN:'Kozhikode',LocationML:'വടകര',LocationEN:'Vatakara',MapURL:'',Phone:'',Status:'Published'},
+{EventID:'DEMO-2',TempleML:'ഉദാഹരണ കാവ് – രണ്ട്',TempleEN:'Example Kavu Two',FromDate:'2026-12-18',ToDate:'2026-12-21',ThiraDetailsML:'ഡിസംബർ 18: ആരംഭം\nഡിസംബർ 19: തിറ പരിപാടികൾ',ThiraDetailsEN:'18 Dec: Opening\n19 Dec: Thira performances',DistrictML:'കണ്ണൂർ',DistrictEN:'Kannur',LocationML:'തലശ്ശേരി',LocationEN:'Thalassery',MapURL:'',Phone:'',Status:'Published'} ];
+const T={ml:{search:'ക്ഷേത്രം / തിറ വിവരങ്ങൾ',searchP:'ക്ഷേത്രം / തിറ വിവരങ്ങൾ തിരയുക...',district:'ജില്ല',location:'സ്ഥലം',allDist:'എല്ലാ ജില്ലകളും',allLoc:'എല്ലാ സ്ഥലങ്ങളും',from:'തുടങ്ങുന്ന തീയതി',to:'അവസാന തീയതി',find:'തിരയുക',list:'പട്ടിക വ്യൂ',calendar:'കലണ്ടർ വ്യൂ',count:n=>`${n} പരിപാടികൾ കണ്ടെത്തി`,date:'തീയതി',details:'തിറ വിവരങ്ങൾ',phone:'ഫോൺ',actions:'ലിങ്കുകൾ',more:'കൂടുതൽ കാണുക',less:'ചുരുക്കുക',none:'ഈ തിരഞ്ഞെടുപ്പിന് പരിപാടികളില്ല.',hint:'ഒരു തീയതി തിരഞ്ഞെടുക്കുമ്പോൾ അതിലെ പരിപാടികൾ കാണാം.',allMonth:'ഈ മാസത്തെ പരിപാടികൾ',demo:'സാമ്പിൾ വിവരങ്ങൾ മാത്രം. നിങ്ങളുടെ Google Sheet CSV URL ചേർക്കുക.',error:'Google Sheet ഡാറ്റ ലഭിച്ചില്ല. പ്രസിദ്ധീകരിച്ച CSV ലിങ്ക് പരിശോധിക്കുക.',disclaimer:'പരിപാടികളുടെ സമയം ക്ഷേത്രവുമായി സ്ഥിരീകരിക്കുക.',today:'ഇന്ന്',map:'മാപ്പ് തുറക്കുക',share:'WhatsApp-ൽ പങ്കിടുക',call:'വിളിക്കുക',temple:'ക്ഷേത്രം',navSearch:'തിരയുക',dateToggle:'തീയതി തിരഞ്ഞെടുക്കുക',poster:'പോസ്റ്റർ തുറക്കുക / ഡൗൺലോഡ് ചെയ്യുക',contact:'ബന്ധപ്പെടുക',contactSubtitle:'Contact Us',contactMsg:'ഈ കലണ്ടറിൽ ക്ഷേത്രങ്ങളുടെയും കാവുകളുടെയും തിറ വിവരങ്ങൾ പുതുതായി ചേർക്കുന്നതിനോ നിലവിലുള്ള വിവരങ്ങൾ പുതുക്കുന്നതിനോ ഞങ്ങളെ ബന്ധപ്പെടുക.'},en:{search:'Temple / Thira details',searchP:'Search temple or Thira details...',district:'District',location:'Location',allDist:'All districts',allLoc:'All locations',from:'From date',to:'To date',find:'Search',list:'List view',calendar:'Calendar view',count:n=>`${n} events found`,date:'Dates',details:'Thira details',phone:'Phone',actions:'Links',more:'Read more',less:'Show less',none:'No events match your filters.',hint:'Select a date to see its festivals.',allMonth:'Festivals this month',demo:'Demo entries only. Add your published Google Sheet CSV URL.',error:'Could not load Google Sheet. Check the published CSV link.',disclaimer:'Confirm festival dates and times with the temple before travelling.',today:'Today',map:'Open map',share:'Share on WhatsApp',call:'Call',temple:'Temple',navSearch:'Search',dateToggle:'Choose dates',poster:'Open / download poster',contact:'Contact Us',contactSubtitle:'Get in touch',contactMsg:'Please contact us to add or update temple and kavu Thira details in this calendar.'}};
+document.getElementById('contactWhatsApp1').href='https://wa.me/'+CONTACT_WHATSAPP_1;
+document.getElementById('contactWhatsApp2').href='https://wa.me/'+CONTACT_WHATSAPP_2;
+document.getElementById('contactWhatsApp1').title='WhatsApp: +'+CONTACT_WHATSAPP_1;
+document.getElementById('contactWhatsApp2').title='WhatsApp: +'+CONTACT_WHATSAPP_2;
+function formatContactNumber(num){return num.startsWith('91')&&num.length===12?'+91 '+num.slice(2,7)+' '+num.slice(7):'+'+num;}
+document.getElementById('whatsappLabel1').textContent=formatContactNumber(CONTACT_WHATSAPP_1);
+document.getElementById('whatsappLabel2').textContent=formatContactNumber(CONTACT_WHATSAPP_2);
+document.getElementById('contactEmail').href='mailto:'+CONTACT_EMAIL;
+document.getElementById('contactEmail').title=CONTACT_EMAIL;
+document.getElementById('contactEmailText').textContent=CONTACT_EMAIL;
+document.getElementById('bannerEmail').href='mailto:'+CONTACT_EMAIL;
+document.getElementById('bannerEmail').textContent=CONTACT_EMAIL;
+let lang='ml',events=[],view='list',calDate=new Date(),selectedDay=null,usingDemo=false;const $=id=>document.getElementById(id);const text=(v)=>String(v??'').trim();const safe=s=>text(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function parseCsv(csv){const rows=[];let row=[],cell='',quoted=false;csv=csv.replace(/^\uFEFF/,'');for(let i=0;i<csv.length;i++){const c=csv[i];if(c==='"'){if(quoted&&csv[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===','&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&csv[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell);if(row.some(x=>x.trim()))rows.push(row);if(!rows.length)return [];const headers=rows.shift().map(x=>x.trim());return rows.map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||'').trim()])));}
+function normalize(x){return {...x,FromDate:text(x.FromDate),ToDate:text(x.ToDate)};}function valid(d){return /^\d{4}-\d{2}-\d{2}$/.test(d)&&!Number.isNaN(Date.parse(d+'T12:00:00'));}function readable(d){if(!valid(d))return d;return new Date(d+'T12:00:00').toLocaleDateString(lang==='ml'?'ml-IN':'en-GB',{day:'numeric',month:'short',year:'numeric'});}function loc(e){return text(e[lang==='ml'?'LocationML':'LocationEN'])||text(e.LocationEN)||text(e.LocationML);}function dis(e){return text(e[lang==='ml'?'DistrictML':'DistrictEN'])||text(e.DistrictEN)||text(e.DistrictML);}function temple(e){return text(e[lang==='ml'?'TempleML':'TempleEN'])||text(e.TempleEN)||text(e.TempleML);}function details(e){return text(e[lang==='ml'?'ThiraDetailsML':'ThiraDetailsEN'])||text(e.ThiraDetailsEN)||text(e.ThiraDetailsML);}function phone(e){return text(e.Phone).replace(/[^\d+]/g,'');}function mapUrl(e){try{const u=new URL(text(e.MapURL));return u.protocol==='https:'&&(/(^|\.)google\.[a-z.]+$/.test(u.hostname)||u.hostname==='maps.app.goo.gl'||u.hostname==='goo.gl')?u.href:'';}catch{return '';}}function posterUrl(e){
+  const raw=text(e.PosterURL);
+  if(!raw)return '';
+  try{
+    const u=new URL(raw,WEBSITE_URL);
+    if(!['http:','https:'].includes(u.protocol))return '';
+    // Only public image links; avoid embedding script/data URLs.
+    return u.href;
+  }catch{return '';}
+}
+function iconPoster(){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 14l2.7-3 2.3 2 2-2 3 4"/><circle cx="9" cy="8" r="1"/></svg>';}
+function iconMap(){return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>';}function iconWa(){return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.92 9.92 0 0 0-8.56 15l-1.4 5.05 5.17-1.36A10 10 0 1 0 12.04 2zm0 18.1a8.06 8.06 0 0 1-4.1-1.12l-.3-.17-3.03.8.81-2.94-.19-.3a8.1 8.1 0 1 1 6.81 3.73zm4.43-6.04c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06a6.58 6.58 0 0 1-1.94-1.19 7.2 7.2 0 0 1-1.34-1.66c-.14-.24-.02-.37.1-.5.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42l-.74-1.8c-.2-.48-.4-.42-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.31.98 2.47c.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.18 1.1.15 1.51.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>';}function shareUrl(e){const message=`KODIYETTAM — ${T[lang].temple}\n${temple(e)}\n${readable(e.FromDate)} – ${readable(e.ToDate)}\n\n${T[lang].details}:\n${details(e)}\n\n${T[lang].location}: ${loc(e)}, ${dis(e)}\n${T[lang].phone}: ${text(e.Phone)||'-'}\n${mapUrl(e)}${posterUrl(e)?'\n'+(lang==='ml'?'ഉത്സവ പോസ്റ്റർ: ':'Festival poster: ')+posterUrl(e):''}\n\n${WEBSITE_URL}`;return 'https://wa.me/?text='+encodeURIComponent(message);}
+function links(e){const m=mapUrl(e),wa=shareUrl(e);return `<a class="icona map ${m?'':'disabled'}" aria-label="${T[lang].map}" title="${T[lang].map}" href="${safe(m||'#')}" target="_blank" rel="noopener noreferrer">${iconMap()}</a>${posterUrl(e)?`<button type="button" class="icona poster" title="${T[lang].poster}" aria-label="${T[lang].poster}" data-poster="${safe(posterUrl(e))}" data-temple="${safe(temple(e))}">${iconPoster()}</button>`:''}<a class="icona wa" title="${T[lang].share}" aria-label="${T[lang].share}" href="${safe(wa)}" target="_blank" rel="noopener noreferrer">${iconWa()}</a>`;}
+function card(e){const num=phone(e);return `<article class="event"><div class="eventtop"><h3 class="temple">${safe(temple(e))}</h3><span class="district">${safe(dis(e))}</span></div><div class="date">▦ ${safe(readable(e.FromDate))} – ${safe(readable(e.ToDate))}</div><div class="location">⌖ ${safe(loc(e))}</div><div class="details clamp">${safe(details(e))}</div><button type="button" class="more" onclick="toggleDetails(this)">${T[lang].more}</button><div class="eventfoot">${num?`<a class="phone" href="tel:${safe(num)}">☎ ${safe(text(e.Phone))}</a>`:'<span class="phone">—</span>'}${links(e)}</div></article>`;}
+/* All poster icons use one click handler, including calendar and desktop table. */
+let posterZoom=1;
+const posterOverlay=document.getElementById('posterOverlay');
+const posterArea=document.getElementById('posterImageArea');
+const posterImage=document.getElementById('posterImage');
+let lastPosterButton=null;
+function setPosterZoom(value){posterZoom=Math.max(1,Math.min(3,value));posterImage.style.width=(posterZoom*100)+'%';posterImage.style.maxWidth='none';document.getElementById('posterZoomReset').textContent=Math.round(posterZoom*100)+'%';}
+function closePoster(){posterOverlay.hidden=true;posterOverlay.setAttribute('aria-hidden','true');posterImage.removeAttribute('src');document.body.classList.remove('poster-open');if(lastPosterButton&&lastPosterButton.isConnected)lastPosterButton.focus();}
+function showPoster(url,name,button){lastPosterButton=button;posterImage.src=url;posterImage.alt=name+' — festival poster';document.getElementById('posterTitle').textContent=name||'ഉത്സവ പോസ്റ്റർ';const dl=document.getElementById('posterDownload');dl.href=url;dl.setAttribute('download',(url.split('/').pop()||'poster.jpg').split('?')[0]);dl.textContent=lang==='ml'?'⬇ പോസ്റ്റർ ഡൗൺലോഡ്':'⬇ Download poster';posterOverlay.hidden=false;posterOverlay.setAttribute('aria-hidden','false');document.body.classList.add('poster-open');setPosterZoom(1);posterArea.scrollTop=0;posterArea.scrollLeft=0;document.getElementById('posterClose').focus();}
+document.addEventListener('click',e=>{const button=e.target.closest('button[data-poster]');if(button)showPoster(button.dataset.poster,button.dataset.temple,button);});
+document.getElementById('posterClose').addEventListener('click',closePoster);
+posterOverlay.addEventListener('click',e=>{if(e.target===posterOverlay)closePoster();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!posterOverlay.hidden)closePoster();});
+document.getElementById('posterZoomIn').onclick=()=>setPosterZoom(posterZoom+.25);
+document.getElementById('posterZoomOut').onclick=()=>setPosterZoom(posterZoom-.25);
+document.getElementById('posterZoomReset').onclick=()=>setPosterZoom(1);
+window.toggleDetails=b=>{const d=b.previousElementSibling;d.classList.toggle('clamp');b.textContent=d.classList.contains('clamp')?T[lang].more:T[lang].less;};
+function getSelect(id){return $(id).value;}function filtered(){const q=text(getSelect('query')).toLocaleLowerCase(),d=getSelect('district'),l=getSelect('location'),f=getSelect('from'),t=getSelect('to');return events.filter(e=>(!d||dis(e)===d)&&(!l||loc(e)===l)&&(!f||e.ToDate>=f)&&(!t||e.FromDate<=t)&&(!q||[temple(e),loc(e),dis(e),details(e),e.TempleML,e.TempleEN,e.ThiraDetailsML,e.ThiraDetailsEN].join(' ').toLocaleLowerCase().includes(q))).sort((a,b)=>a.FromDate.localeCompare(b.FromDate)||temple(a).localeCompare(temple(b)));}
+function populateSelect(id,items,placeholder){const s=$(id),old=s.value;s.innerHTML='<option value="">'+safe(placeholder)+'</option>'+[...new Set(items.filter(Boolean))].sort((a,b)=>a.localeCompare(b)).map(x=>`<option value="${safe(x)}">${safe(x)}</option>`).join('');if([...s.options].some(o=>o.value===old))s.value=old;}function populateFilters(){populateSelect('district',events.map(dis),T[lang].allDist);const d=getSelect('district');populateSelect('location',events.filter(e=>!d||dis(e)===d).map(loc),T[lang].allLoc);}
+function renderTable(list){if(!list.length){$('tableTarget').innerHTML='<div class="empty">'+T[lang].none+'</div>';return;}$('tableTarget').innerHTML=`<div class="tablewrap"><table class="desktop-table"><thead><tr><th>#</th><th>${T[lang].temple}</th><th>${T[lang].date}</th><th>${T[lang].details}</th><th>${T[lang].location}</th><th>${T[lang].phone}</th><th>${T[lang].actions}</th></tr></thead><tbody>${list.map((e,i)=>`<tr><td>${i+1}</td><td><b>${safe(temple(e))}</b></td><td>${safe(readable(e.FromDate))}<br>– ${safe(readable(e.ToDate))}</td><td class="detailCell">${safe(details(e))}</td><td>${safe(loc(e))}<br><small>${safe(dis(e))}</small></td><td>${phone(e)?`<a href="tel:${safe(phone(e))}">${safe(text(e.Phone))}</a>`:'—'}</td><td><div style="display:flex;gap:5px">${links(e)}</div></td></tr>`).join('')}</tbody></table></div>`;}
+function renderCalendar(list){const y=calDate.getFullYear(),m=calDate.getMonth();$('monthTitle').textContent=calDate.toLocaleDateString(lang==='ml'?'ml-IN':'en-GB',{month:'long',year:'numeric'});const first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),week=lang==='ml'?['ഞാ','തി','ചൊ','ബു','വ്യാ','വെ','ശ']:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];let html=week.map(d=>`<div class="dow">${d}</div>`).join('');for(let i=0;i<first;i++)html+='<div class="day blank"></div>';for(let d=1;d<=days;d++){const iso=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,n=list.filter(e=>e.FromDate<=iso&&e.ToDate>=iso).length,today=new Date().toLocaleDateString('en-CA');html+=`<button class="day ${n?'has':''} ${selectedDay===iso?'selected':''} ${today===iso?'today':''}" data-day="${iso}" aria-label="${iso}, ${n} events"><span>${d}</span><span class="dots">${Array.from({length:Math.min(n,3)},(_,i)=>'<i class="dot"></i>').join('')}</span></button>`;}for(let i=(first+days)%7;i&&i<7;i++)html+='<div class="day blank"></div>';$('calGrid').innerHTML=html;$('calGrid').querySelectorAll('[data-day]').forEach(b=>b.addEventListener('click',()=>{selectedDay=selectedDay===b.dataset.day?null:b.dataset.day;render();}));$('calHint').textContent=selectedDay?`${readable(selectedDay)} · ${T[lang].hint}`:T[lang].hint;const inMonth=list.filter(e=>e.FromDate<=`${y}-${String(m+1).padStart(2,'0')}-${String(days).padStart(2,'0')}`&&e.ToDate>=`${y}-${String(m+1).padStart(2,'0')}-01`);const visible=selectedDay?inMonth.filter(e=>e.FromDate<=selectedDay&&e.ToDate>=selectedDay):inMonth;$('calendarEvents').innerHTML=visible.length?visible.map(card).join(''):`<div class="empty">${T[lang].none}</div>`;}
+function render(){const list=filtered();$('count').textContent=T[lang].count(list.length);$('loaded').textContent=usingDemo?'DEMO':'';$('cardsTarget').innerHTML=list.length?list.map(card).join(''):`<div class="empty">${T[lang].none}</div>`;renderTable(list);renderCalendar(list);$('listSection').classList.toggle('hidden',view!=='list');$('calendarSection').classList.toggle('hidden',view!=='calendar');$('listTab').classList.toggle('active',view==='list');$('calendarTab').classList.toggle('active',view==='calendar');$('bottomList').classList.toggle('active',activePage==='home'&&view==='list');$('bottomCalendar').classList.toggle('active',activePage==='home'&&view==='calendar');}
+let activePage='home';
+function setPage(page){activePage=page;const isContact=page==='contact';$('calendarHome').classList.toggle('hidden',isContact);$('contactPage').classList.toggle('hidden',!isContact);$('bottomContact').classList.toggle('active',isContact);$('bottomList').classList.toggle('active',!isContact&&view==='list');$('bottomCalendar').classList.toggle('active',!isContact&&view==='calendar');$('bottomTop').classList.remove('active');$('desktopHome').classList.toggle('active',!isContact);$('desktopContact').classList.toggle('active',isContact);window.scrollTo({top:0,behavior:'smooth'});}
+function setView(v){view=v;selectedDay=null;render();if(activePage!=='home')setPage('home');}
+function setLanguage(v){lang=v;document.documentElement.lang=v;$('mlBtn').classList.toggle('active',v==='ml');$('enBtn').classList.toggle('active',v==='en');const t=T[lang];for(const [id,key] of [['searchLabel','search'],['districtLabel','district'],['locationLabel','location'],['fromLabel','from'],['toLabel','to'],['searchBtn','find'],['listTab','list'],['calendarTab','calendar'],['navList','list'],['navCalendar','calendar'],['navSearch','navSearch'],['disclaimer','disclaimer']])$(id).textContent=t[key];$('query').placeholder=t.searchP;$('contactHeading').textContent=t.contact;$('contactSubtitle').textContent=t.contactSubtitle;$('contactMessage').textContent=t.contactMsg;$('navContact').textContent=t.contact;$('desktopContact').textContent=t.contact;$('desktopHome').textContent=v==='ml'?'പട്ടിക / കലണ്ടർ':'Festival calendar';populateFilters();$('warning').textContent=usingDemo?t.demo:'';render();}
+$('mlBtn').onclick=()=>setLanguage('ml');$('enBtn').onclick=()=>setLanguage('en');$('listTab').onclick=()=>setView('list');$('calendarTab').onclick=()=>setView('calendar');$('bottomList').onclick=()=>setView('list');$('bottomCalendar').onclick=()=>setView('calendar');$('bottomTop').onclick=()=>{if(activePage!=='home')setPage('home');window.scrollTo({top:0,behavior:'smooth'});$('query').focus();};$('bottomContact').onclick=()=>setPage('contact');$('desktopHome').onclick=()=>setPage('home');$('desktopContact').onclick=()=>setPage('contact');$('prev').onclick=()=>{calDate=new Date(calDate.getFullYear(),calDate.getMonth()-1,1);selectedDay=null;render();};$('next').onclick=()=>{calDate=new Date(calDate.getFullYear(),calDate.getMonth()+1,1);selectedDay=null;render();};$('district').onchange=()=>{populateSelect('location',events.filter(e=>!getSelect('district')||dis(e)===getSelect('district')).map(loc),T[lang].allLoc);render();};['location','from','to','query'].forEach(id=>$(id).addEventListener(id==='query'?'input':'change',()=>{selectedDay=null;render();}));$('searchBtn').onclick=()=>render();$('resetBtn').onclick=()=>{['query','district','location','from','to'].forEach(id=>$(id).value='');populateFilters();selectedDay=null;render();};
+async function init(){const url=GOOGLE_SHEET_CSV_URL.trim();if(!url||url.includes('PASTE_YOUR')){events=DEMO;usingDemo=true;$('warning').classList.remove('hidden');$('warning').textContent=T[lang].demo;populateFilters();render();return;}try{const res=await fetch(url+(url.includes('?')?'&':'?')+'_ts='+Date.now(),{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);const csv=await res.text();const rows=parseCsv(csv);const required=['TempleML','FromDate','ToDate','DistrictML','LocationML'];if(!rows.length||required.some(k=>!(k in rows[0])))throw new Error('Missing required headers or no rows');events=rows.map(normalize).filter(x=>text(x.Status).toLowerCase()==='published'&&valid(x.FromDate)&&valid(x.ToDate)&&x.ToDate>=x.FromDate&&x.TempleML);usingDemo=false;$('warning').classList.add('hidden');}catch(err){console.error('Sheet load error',err);events=[];$('warning').classList.remove('hidden');$('warning').textContent=T[lang].error;}populateFilters();render();}init();
+
+/* Short festive shower on each fresh page load; never blocks scrolling or controls. */
+(function showFestivalWelcome(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const layer=document.createElement('div');
+  layer.className='kodiyettam-stars';
+  layer.setAttribute('aria-hidden','true');
+  const sparkle='<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 1.8l2.4 7.15L22 12l-7.6 3.05L12 22.2l-2.4-7.15L2 12l7.6-3.05z"/></svg>';
+  const palette=['#ffdc83','#fff1bf','#f6b647','#fffbe6','#fac46a'];
+  // Festive visual motifs: star, traditional lamp, flower, golden decorative diamond.
+  const motifs=[{type:'star',html:sparkle},{type:'star',html:sparkle},
+    {type:'flower',text:'✿'},{type:'diamond',text:'✧'},
+    {type:'star',html:sparkle},{type:'lamp',text:'🪔'},
+    {type:'star',html:sparkle},{type:'flower',text:'❀'},
+    {type:'star',html:sparkle},{type:'diamond',text:'✦'}];
+  const mobile=window.innerWidth<600;
+  const count=mobile?43:78;
+  for(let i=0;i<count;i++){
+    const m=motifs[(i*7+Math.floor(i/5))%motifs.length];
+    const part=document.createElement('span');
+    part.className='kodiyettam-star'+(m.type==='star'?'':' kodiyettam-symbol')+(m.type==='lamp'?' kodiyettam-lamp':'');
+    // Deterministic distribution, staggered across the full screen.
+    const x=(i*37+11+Math.floor(i/7)*3)%99;
+    const size=m.type==='lamp'?(mobile?14:19):8+(i*11)%12;
+    const delay=((i*17)%31)/16;
+    const duration=3.0+((i*13)%19)/10;
+    part.style.setProperty('--star-x',x+'%');
+    part.style.setProperty('--star-size',size+'px');
+    part.style.setProperty('--star-delay',delay+'s');
+    part.style.setProperty('--star-duration',duration+'s');
+    part.style.setProperty('--star-drift',(((i*23)%100)-50)+'px');
+    part.style.setProperty('--star-rotation',((i%2?1:-1)*(145+(i*11)%170))+'deg');
+    part.style.setProperty('--star-color',palette[i%palette.length]);
+    if(m.html)part.innerHTML=m.html;else part.textContent=m.text;
+    layer.appendChild(part);
+  }
+  document.body.appendChild(layer);
+  window.setTimeout(()=>layer.remove(),6500);
+})();
+</script></body></html>
